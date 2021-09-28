@@ -1,5 +1,5 @@
-import { FolderOpenOutlined, FolderOutlined } from '@ant-design/icons'
-import { Button, Empty } from 'antd'
+import { FolderOpenOutlined, FolderOutlined, InfoCircleOutlined } from '@ant-design/icons'
+import { Button, Empty, Tooltip } from 'antd'
 import { cloneDeep } from 'lodash'
 import React from 'react'
 import { useWatch } from 'react-hook-form'
@@ -81,7 +81,10 @@ const Tree = ({ parentId }: Props) => {
   }
 
   return (
-    <Card className='col-span-4'>
+    <Card className='col-span-4 relative'>
+      <Tooltip placement='bottom' title='Drag to relocate folder'>
+        <InfoCircleOutlined className='absolute right-3 top-3 cursor-pointer' />
+      </Tooltip>
       <div className='flex justify-between mb-5'>
         <TreeSelect
           value={folderSearch}
